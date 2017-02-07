@@ -4,9 +4,9 @@ import { Link } from "react-router";
 import Footer from "./shared/Footer";
 import Nav from "./shared/Nav";
 
-export default class Layout extends React.Component {
+export default class App extends React.Component {
   render() {
-    console.log("layout");
+    console.log("app");
     return (
       <div>
 

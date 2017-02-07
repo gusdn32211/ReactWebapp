@@ -2,6 +2,10 @@ import React from 'react';
 import { combineReducers, createStore } from "redux";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import Personal from "./components/Personal";
+import Home from "./components/Home";
+import App from "./components/App";
+import Settings from "./components/Settings";
 
 const userReducer = (state={}, action) => {
 	switch(action.type) {
@@ -37,16 +41,11 @@ store.dispatch({type: "CHANGE_AGE", payload: 21})
 store.dispatch({type: "INC", payload: 1})
 store.dispatch({type: "DEC", payload: 1})
 
-import Personal from "./components/Personal";
-import Home from "./components/Home";
-import Layout from "./components/Layout";
-import Settings from "./components/Settings";
-
 const app = document.getElementById('app');
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
+    <Route path="/" component={App}>
       <IndexRoute component={Home}></IndexRoute>
 	  <Route path="personal" name="personal" component={Personal}></Route>
       <Route path="settings" name="settings" component={Settings}></Route>

@@ -8,7 +8,7 @@ export default class Nav extends React.Component {
     return (
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-          <div id="bs-example-navbar-collapse-1">
+          <div>
             <ul class="nav navbar-nav">
               <li activeClassName="active">
                 <IndexLink to="/">Home</IndexLink>
@@ -18,6 +18,9 @@ export default class Nav extends React.Component {
               </li>
               <li activeClassName="active">
                 <Link to="settings" >Settings</Link>
+              </li>
+              <li>
+                <button type="button" class="btn btn-default navbar-btn">Sign in</button>
               </li>
             </ul>
           </div>
