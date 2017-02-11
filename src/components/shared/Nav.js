@@ -19,10 +19,8 @@ export default class Nav extends React.Component {
               <li activeClassName="active">
                 <Link to="settings" >Settings</Link>
               </li>
-              <li>
-                <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-              </li>
             </ul>
+            <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
           </div>
         </div>
       </nav>
