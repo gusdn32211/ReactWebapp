@@ -1,16 +1,24 @@
 import { applyMiddleware, createStore } from "redux";
 import { reducers } from "../reducers";
+import axios from "axios";
 import logger from "redux-logger"
+import thunk from "redux-thunk";
+import promise from "redux-promise-middleware"
 
-const middleware = applyMiddleware(logger())
+const middleware = applyMiddleware(promise(), thunk, logger())
 
 const store = createStore(reducers, middleware);
 
-store.subscribe(() => {
-	console.log("store changed", store.getState())
+store.dispatch({
+	type: "FETCH_DATA",
+	payload: axios.get("http://rest.learncode.academy/api/wstern/users")
 })
 
-store.dispatch({type: "CHANGE_NAME", payload: "CLARENCE"})
-store.dispatch({type: "CHANGE_AGE", payload: 21})
-store.dispatch({type: "INC", payload: 1})
-store.dispatch({type: "DEC", payload: 1})
+store.dispatch((dispatch) => {
+	// dispatch({type: "CHANGE_NAME", payload: "CLARENCE"})
+	// dispatch({type: "CHANGE_AGE", payload: 21})
+	// dispatch({type: "INC", payload: 1})
+	// dispatch({type: "DEC", payload: 1})
+})
+
+
