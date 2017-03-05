@@ -10,17 +10,21 @@ export default class Nav extends React.Component {
         <div class="container">
           <div>
             <ul class="nav navbar-nav">
-              <li activeClassName="active">
+              <li>
                 <IndexLink to="/">Home</IndexLink>
               </li>
-              <li activeClassName="active">
-                <Link to="personal" >Personal</Link>
+              <li>
+                <Link to="personal">Personal</Link>
               </li>
-              <li activeClassName="active">
-                <Link to="settings" >Settings</Link>
+              <li>
+                <Link to="settings">Settings</Link>
               </li>
             </ul>
-            <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <Link to="login">Login</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>

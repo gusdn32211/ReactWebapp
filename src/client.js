@@ -6,6 +6,7 @@ import Personal from "./components/Personal";
 import Home from "./components/Home";
 import App from "./components/App";
 import Settings from "./components/Settings";
+import Login from "./components/Login";
 
 import store from "./store"
 
@@ -18,6 +19,7 @@ ReactDOM.render(
 	      <IndexRoute component={Home}></IndexRoute>
 		  <Route path="personal" name="personal" component={Personal}></Route>
 	      <Route path="settings" name="settings" component={Settings}></Route>
+	      <Route path="login" name="login" component={Login}></Route>
 	    </Route>
 	  </Router>
   </Provider>,
