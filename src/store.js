@@ -14,11 +14,4 @@ store.dispatch({
 	payload: axios.get("http://rest.learncode.academy/api/wstern/users")
 })
 
-store.dispatch((dispatch) => {
-	// dispatch({type: "CHANGE_NAME", payload: "CLARENCE"})
-	// dispatch({type: "CHANGE_AGE", payload: 21})
-	// dispatch({type: "INC", payload: 1})
-	// dispatch({type: "DEC", payload: 1})
-})
-
 export default store;
