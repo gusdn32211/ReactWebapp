@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import fetchData from "./fetchDataReducer"
+import login from "./loginReducer"
 
 const userReducer = (state={}, action) => {
 	switch(action.type) {
@@ -18,6 +19,7 @@ const userReducer = (state={}, action) => {
 
 export default combineReducers({
 	fetchData,
+	login,
 	user: userReducer,
 })
 
