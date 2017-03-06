@@ -33,3 +33,16 @@ export function userSignupRequest(userData) {
 		return axios.post('/api/users', userData);
 	}
 }
+
+export function setUserErrorsRegister(errors) {
+	return {
+		type: 'SET_USER_ERRORS_REGISTER',
+		payload: errors
+	}
+}
+
+export function clearRegisterErrors() {
+	return {
+		type: 'CLEAR_REGISTER_ERRORS'
+	}
+}

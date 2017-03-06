@@ -2,7 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SignupForm from "./shared/SignupForm";
-import { setUserNameRegister, setUserPasswordRegister, setUserEmailRegister, setTimezone, userSignupRequest } from "../actions/registerAction";
+import { 
+  setUserNameRegister,
+  setUserPasswordRegister,
+  setUserEmailRegister,
+  setTimezone,
+  userSignupRequest,
+  setUserErrorsRegister,
+  clearRegisterErrors
+} from "../actions/registerAction";
 import { registerSelector } from "../selectors";
 
 class Signup extends React.Component {
@@ -17,6 +25,8 @@ class Signup extends React.Component {
             setUserEmail={this.props.setUserEmailRegister}
             setTimezone={this.props.setTimezone}
             userSignupRequest={this.props.userSignupRequest}
+            setUserErrorsRegister={this.props.setUserErrorsRegister}
+            clearRegisterErrors={this.props.clearRegisterErrors}
             // username={this.props.register.username}
             // password={this.props.register.password}
             // timezone={this.props.register.timezone}
@@ -41,7 +51,9 @@ function matchDispatchToProps(dispatch) {
     setUserPasswordRegister: setUserPasswordRegister,
     setUserEmailRegister: setUserEmailRegister,
     setTimezone: setTimezone,
-    userSignupRequest: userSignupRequest
+    userSignupRequest: userSignupRequest,
+    setUserErrorsRegister: setUserErrorsRegister,
+    clearRegisterErrors: clearRegisterErrors
   }, dispatch)
 }
 

@@ -2,7 +2,8 @@ const initialState= {
 	username: "",
 	email: "",
 	password: "",
-	timezone: ""
+	timezone: "",
+	errors: {}
 }
 
 const registerReducer = (state=initialState, action) => {
@@ -21,6 +22,15 @@ const registerReducer = (state=initialState, action) => {
 		}
 		case "SET_TIMEZONE": {
 			return {...state, timezone: action.payload}
+			break;
+		}
+		case "SET_USER_ERRORS_REGISTER": {
+			return {...state, errors: action.payload}
+			break;
+		}
+		case "CLEAR_REGISTER_ERRORS": {
+			return {...state, errors: {}}
+			break;
 		}
 	}
 	return state;
