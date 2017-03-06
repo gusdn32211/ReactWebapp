@@ -2,6 +2,8 @@ import { createSelector } from 'reselect'
 
 export const fetchDataSelector = (state) => state.fetchData.users;
 
+export const registerSelector = (state) => state.register;
+
 export const fetchDataUser = createSelector(
 	fetchDataSelector,
 	(data) => {

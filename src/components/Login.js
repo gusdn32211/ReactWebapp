@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {setUserName, setUserPassword} from "../actions"
+import {setUserNameLogin, setUserPasswordLogin} from "../actions/login"
 
 
 
@@ -9,28 +9,27 @@ class Login extends React.Component {
 
   constructor(props) {
    super(props);
-   this.setUserName = this.setUserName.bind(this);
-   this.setUserPassword = this.setUserPassword.bind(this);
+   this.setUserNameLogin = this.setUserNameLogin.bind(this);
+   this.setUserPasswordLogin = this.setUserPasswordLogin.bind(this);
 	}
 
-	setUserName(e) {
-	 this.props.setUserName(e.target.value)
+	setUserNameLogin(e) {
+	 this.props.setUserNameLogin(e.target.value)
 	}
 
-	setUserPassword(e) {
-	 this.props.setUserPassword(e.target.value)
+	setUserPasswordLogin(e) {
+	 this.props.setUserPasswordLogin(e.target.value)
 	}
 
 	render() {
     return (
     	<div>
     		<h1>Login</h1>
-		    
 		    <label>Username</label>
-		    <input type="text" placeholder="Enter Username" onChange={this.setUserName}/><br/>
+		    <input type="text" placeholder="Enter Username" onChange={this.setUserNameLogin}/><br/>
 
 		    <label>Password</label>
-		    <input type="password" placeholder="Enter Password" onChange={this.setUserPassword}/>
+		    <input type="password" placeholder="Enter Password" onChange={this.setUserPasswordLogin}/>
 		    
 		    <button type="submit">Login</button>
     	</div>
@@ -45,8 +44,8 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		setUserName: setUserName,
-		setUserPassword: setUserPassword
+		setUserNameLogin: setUserNameLogin,
+		setUserPasswordLogin: setUserPasswordLogin
 	}, dispatch)
 }
 
