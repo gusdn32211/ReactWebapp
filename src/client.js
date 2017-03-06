@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import { render } from 'react-dom';
 import Personal from "./components/Personal";
 import Home from "./components/Home";
 import App from "./components/App";

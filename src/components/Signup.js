@@ -2,24 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SignupForm from "./shared/SignupForm";
-import { setUserNameRegister, setUserPasswordRegister, setUserEmailRegister, setTimezone } from "../actions/register";
+import { setUserNameRegister, setUserPasswordRegister, setUserEmailRegister, setTimezone, userSignupRequest } from "../actions/registerAction";
 import { registerSelector } from "../selectors";
 
 class Signup extends React.Component {
   render() {
     return (
     	<div>
-        <div class="row">
-          <div class="col-md-4 col-md-offset-4"></div>
+        <div className="row">
+          <div className="col-md-4 col-md-offset-4"></div>
           <SignupForm
             setUserName={this.props.setUserNameRegister}
             setUserPassword={this.props.setUserPasswordRegister}
             setUserEmail={this.props.setUserEmailRegister}
             setTimezone={this.props.setTimezone}
-            username={this.props.register.username}
-            password={this.props.register.password}
-            timezone={this.props.register.timezone}
-            email={this.props.register.email}>
+            userSignupRequest={this.props.userSignupRequest}
+            // username={this.props.register.username}
+            // password={this.props.register.password}
+            // timezone={this.props.register.timezone}
+            // email={this.props.register.email}
+            user={this.props.register}>
           </SignupForm>
         </div>
 	    </div>
@@ -38,7 +40,8 @@ function matchDispatchToProps(dispatch) {
     setUserNameRegister: setUserNameRegister,
     setUserPasswordRegister: setUserPasswordRegister,
     setUserEmailRegister: setUserEmailRegister,
-    setTimezone: setTimezone
+    setTimezone: setTimezone,
+    userSignupRequest: userSignupRequest
   }, dispatch)
 }
 

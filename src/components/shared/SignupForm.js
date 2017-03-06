@@ -1,6 +1,6 @@
 import React from "react";
 import timezones from '../../data/timezones';
-import map from 'lodash/map';
+import _ from 'lodash';
 
 class SignupForm extends React.Component {
   constructor(props){
@@ -30,62 +30,63 @@ class SignupForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.props.username);
+    // console.log(this.props.user);
+    this.props.userSignupRequest(this.props.user);
   }
 
   render() {
-    const options = map(timezones, (val, key) =>
+    const timezoneOptions = _.map(timezones, (val, key) =>
       <option key={val} value={val}>{key}</option>
     );
     return (
     	<form onSubmit={this.onSubmit}>
         <h1>Create an account!</h1>
 
-        <div class="form-group">
-            <label class="control-label">Username</label>
+        <div className="form-group">
+            <label className="control-label">Username</label>
             <input
                 onChange={this.setUserName}
-                value={this.props.username}
+                value={this.props.user.username}
                 type="text"
                 name="username"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter Username">
             </input>
 
-            <label class="control-label">Email</label>
+            <label className="control-label">Email</label>
             <input
                 onChange={this.setUserEmail}
-                value={this.props.email}
+                value={this.props.user.email}
                 type="text"
                 name="email"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter Email">
             </input>
 
-            <label class="control-label">Password</label>
+            <label className="control-label">Password</label>
             <input
                 onChange={this.setUserPassword}
-                value={this.props.password}
+                value={this.props.user.password}
                 type="password"
                 name="password"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter Password">
             </input>
 
-            <div class="form-group">
-              <label class="control-label">Timezone</label>
+            <div className="form-group">
+              <label className="control-label">Timezone</label>
               <select
                 onChange={this.setTimezone}
-                value={this.props.timezone} 
-                class="form-control"
+                value={this.props.user.timezone} 
+                className="form-control"
                 name="timezone" >
                   <option value="" disabled>Choose your Timezone</option>
-                  {options}
+                  {timezoneOptions}
               </select>
             </div>
 
-            <div class="form-group">
-                <button class="btn btn-primary btn-lg">Sign up</button>
+            <div className="form-group">
+                <button className="btn btn-primary btn-lg">Sign up</button>
             </div>
         </div>
 	    </form>

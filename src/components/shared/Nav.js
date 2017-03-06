@@ -6,10 +6,10 @@ export default class Nav extends React.Component {
   render() {
 
     return (
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+      <nav className="navbar navbar-inverse navbar-fixed-top">
+        <div className="container">
           <div>
-            <ul class="nav navbar-nav">
+            <ul className="nav navbar-nav">
               <li>
                 <IndexLink to="/">Home</IndexLink>
               </li>
@@ -20,7 +20,7 @@ export default class Nav extends React.Component {
                 <Link to="settings">Settings</Link>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link to="login">Login</Link>
               </li>

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export function setUserNameRegister(name) {
 	return {
 		type: 'SET_USER_NAME_REGISTER',
@@ -23,5 +25,11 @@ export function setTimezone(timezone) {
 	return {
 		type: 'SET_TIMEZONE',
 		payload: timezone
+	}
+}
+
+export function userSignupRequest(userData) {
+	return dispatch => {
+		return axios.post('/api/users', userData);
 	}
 }
