@@ -2,6 +2,8 @@ import React from "react";
 import timezones from '../../data/timezones';
 import _ from 'lodash';
 import classnames from 'classnames';
+import validateInput from '../../../server/shared/validations/signup';
+import TextFieldGroup from './TextFieldGroup';
 
 class SignupForm extends React.Component {
   constructor(props){
@@ -29,29 +31,28 @@ class SignupForm extends React.Component {
     this.props.setTimezone(e.target.value)
   }
 
+  isValid() {
+    const { errors, isValid } = validateInput(this.props.user)
+
+    if (!isValid) {
+      this.props.setUserErrorsRegister(errors)
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
     this.props.clearRegisterErrors();
-    this.props.userSignupRequest(this.props.user).then(
-      () => {},
-      ({data}) => this.props.setUserErrorsRegister(data)
-    );
+
+    if (this.isValid()) {
+      this.props.userSignupRequest(this.props.user).then(
+        () => {},
+        ({data}) => this.props.setUserErrorsRegister(data)
+      );
+    }
   }
 
   render() {
     let errors = this.props.user.errors;
-    let emailClassnames = classnames (
-      'form-group',
-      {'has-error' : errors.email}
-    )
-    let usernameClassnames = classnames (
-      'form-group',
-      {'has-error' : errors.username}
-    )
-    let passwordClassnames = classnames (
-      'form-group',
-      {'has-error' : errors.password}
-    )
     let timezoneClassnames = classnames (
       'form-group',
       {'has-error' : errors.timezone}
@@ -63,44 +64,35 @@ class SignupForm extends React.Component {
     	<form onSubmit={this.onSubmit}>
         <h1>Create an account!</h1>
 
-        <div className={usernameClassnames}>
-          <label className="control-label">Username</label>
-          <input
-              onChange={this.setUserName}
-              value={this.props.user.username}
-              type="text"
-              name="username"
-              className="form-control"
-              placeholder="Enter Username">
-          </input>
-          {errors && <span className="help-block">{errors.username}</span>}
-        </div>
+        <TextFieldGroup
+          onChange={this.setUserName}
+          value={this.props.user.username}
+          error={errors.username}
+          type="text"
+          name="username"
+          label="Username"
+          placeholder="Enter Username">
+        </TextFieldGroup>
 
-        <div className={emailClassnames}>
-          <label className="control-label">Email</label>
-          <input
-              onChange={this.setUserEmail}
-              value={this.props.user.email}
-              type="text"
-              name="email"
-              className="form-control"
-              placeholder="Enter Email">
-          </input>
-          {errors && <span className="help-block">{errors.email}</span>}
-        </div>
+        <TextFieldGroup
+          onChange={this.setUserEmail}
+          value={this.props.user.email}
+          error={errors.email}
+          type="text"
+          name="email"
+          label="Email"
+          placeholder="Enter Email">
+        </TextFieldGroup>
 
-        <div className={passwordClassnames}>
-          <label className="control-label">Password</label>
-          <input
-              onChange={this.setUserPassword}
-              value={this.props.user.password}
-              type="password"
-              name="password"
-              className="form-control"
-              placeholder="Enter Password">
-          </input>
-          {errors && <span className="help-block">{errors.password}</span>}
-        </div>
+        <TextFieldGroup
+          onChange={this.setUserPassword}
+          value={this.props.user.password}
+          error={errors.password}
+          type="password"
+          name="password"
+          label="Password"
+          placeholder="Enter Password">
+        </TextFieldGroup>
 
         <div className={timezoneClassnames}>
           <label className="control-label">Timezone</label>
