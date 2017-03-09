@@ -5,6 +5,7 @@ import Footer from "./shared/Footer";
 import Nav from "./shared/Nav";
 
 export default class App extends React.Component {
+
   render() {
     return (
       <div>

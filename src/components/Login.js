@@ -3,8 +3,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import {setUserNameLogin, setUserPasswordLogin} from "../actions/loginAction"
 
-
-
 class Login extends React.Component {
 
   constructor(props) {

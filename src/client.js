@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
 import { render } from 'react-dom';
 import Personal from "./components/Personal";
 import Home from "./components/Home";
@@ -16,7 +16,7 @@ const app = document.getElementById('app');
 
 ReactDOM.render(
 	<Provider store={store}>
-	  <Router history={hashHistory}>
+	  <Router history={browserHistory}>
 	    <Route path="/" component={App}>
 	      <IndexRoute component={Home}></IndexRoute>
 		  <Route path="personal" name="personal" component={Personal}></Route>

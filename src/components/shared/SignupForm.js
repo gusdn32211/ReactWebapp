@@ -1,7 +1,8 @@
 import React from "react";
-import timezones from '../../data/timezones';
+import { withRouter } from 'react-router';
 import _ from 'lodash';
 import classnames from 'classnames';
+import timezones from '../../data/timezones';
 import validateInput from '../../../server/shared/validations/signup';
 import TextFieldGroup from './TextFieldGroup';
 
@@ -37,6 +38,8 @@ class SignupForm extends React.Component {
     if (!isValid) {
       this.props.setUserErrorsRegister(errors)
     }
+
+    return isValid;
   }
 
   onSubmit(e) {
@@ -45,7 +48,9 @@ class SignupForm extends React.Component {
 
     if (this.isValid()) {
       this.props.userSignupRequest(this.props.user).then(
-        () => {},
+        () => {
+          this.props.router.push('/');
+        },
         ({data}) => this.props.setUserErrorsRegister(data)
       );
     }
@@ -115,4 +120,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);
