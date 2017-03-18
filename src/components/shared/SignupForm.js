@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import _ from 'lodash';
 import classnames from 'classnames';
 import timezones from '../../data/timezones';
-import validateInput from '../../../server/shared/validations/signup';
+import validateInput from '../../helpers/signup';
 import TextFieldGroup from './TextFieldGroup';
 
 class SignupForm extends React.Component {

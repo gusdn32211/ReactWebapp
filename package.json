@@ -4,8 +4,7 @@
   "description": "personal project",
   "main": "webpack.config.js",
   "scripts": {
-    "server": "nodemon --watch server --exec babel-node -- server/index.js",
-    "start": "webpack-dev-server"
+    "start": "nodemon --watch server --exec babel-node -- server/index.js"
   },
   "repository": {
     "type": "git",
